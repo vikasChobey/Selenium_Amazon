@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="testcases.AmazonLoginTest">
+        <methods>
+          <include name="amazonLogin"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- testcases.AmazonLoginTest -->
+      <class name="testcases.AmazonProductCheckoutTest">
+        <methods>
+          <include name="setup"/>
+          <include name="useAddress"/>
+        </methods>
+      </class> <!-- testcases.AmazonProductCheckoutTest -->
+      <class name="testcases.AmazonSearchProductsTest">
+        <methods>
+          <include name="clickOnRequiredProduct"/>
+          <include name="setup"/>
+          <include name="searchedProductPageOpened"/>
+        </methods>
+      </class> <!-- testcases.AmazonSearchProductsTest -->
+      <class name="testcases.AmazonProductDetailsTest">
+        <methods>
+          <include name="setup"/>
+          <include name="verifyProductDetailsAndAddToCartFlow"/>
+        </methods>
+      </class> <!-- testcases.AmazonProductDetailsTest -->
+      <class name="com.ama.qa.pages.ShoppingCartPage">
+        <methods>
+          <include name="clickProceedToBuy"/>
+        </methods>
+      </class> <!-- com.ama.qa.pages.ShoppingCartPage -->
+      <class name="testcases.ShoppingCartTest">
+        <methods>
+          <include name="setup"/>
+          <include name="SearchForAProduct"/>
+        </methods>
+      </class> <!-- testcases.ShoppingCartTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
