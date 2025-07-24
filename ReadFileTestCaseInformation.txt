@@ -1,0 +1,56 @@
+✅ 1. Dynamic DOM & duplicate elements
+ 
+The same element (like profile name in hamburger menu) appeared multiple times in the DOM (id duplicated or rendered in two places).
+ 
+Needed more specific locators or XPath with indexing to target the right one.
+ 
+✅ 2. CSS selectors not working reliably
+ 
+@FindBy(css = "#hmenu-customer-name b") was ambiguous because of duplicate elements and hidden DOM sections.
+ 
+Had to switch to more robust XPaths or context-based locators.
+ 
+✅ 3. Unexpected pages disrupting flow
+ 
+Sometimes after login you hit the "Continue Shopping" page (<button class="a-button-text">Continue shopping</button>).
+ 
+Needed logic to detect this page and handle it before continuing the flow.
+ 
+✅ 4. Oops / 503 Service Unavailable page
+ 
+After clicking login, Amazon sometimes shows:
+ 
+vbnet
+Copy
+Edit
+Oops! It's rush hour and traffic is piling up...
+Required additional checks (verifyNoOopsPage()) and logic to stop execution gracefully instead of continuing tests.
+ 
+✅ 5. Timing restrictions
+ 
+Some test scenarios only valid in certain time windows (like 6 PM–7 PM, 3 PM–6 PM).
+ 
+Had to implement conditional checks in code to skip outside those windows.
+ 
+✅ 6. Profile name validation logic
+ 
+Needed to validate that the extracted profile name does not contain certain forbidden characters (A, C, G, I, L, K).
+ 
+Handling string trimming, case-insensitive checks, and edge cases (empty or unexpected names).
+ 
+✅ 7. Username / profile element on homepage vs hamburger menu
+ 
+Initially, you were checking after clicking the hamburger menu (profileNameElement), but then discovered a better stable locator on the home page (homeProfileElement with id nav-link-accountList-nav-line-1).
+ 
+✅ 8. Payment and cart validations
+ 
+Payment logic was not performed
+ 
+✅ 9. Asynchronous page loads
+ 
+Amazon’s dynamic nature required explicit waits (WebDriverWait with ExpectedConditions) to avoid stale element exceptions and ensure elements were visible/interactable.
+ 
+✅ 10. Handling hidden elements
+ 
+The hamburger menu and profile details were sometimes present in DOM but hidden (display:none), causing confusion in element selection.
+ 
